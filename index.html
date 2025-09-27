@@ -2,27 +2,52 @@
 <html>
 <head>
  <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZCasting Weather App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="style.css" />
-
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>ZCasting Weather App</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+ <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div style="color:white; text-align:center" class="maincontent">
-<img src="images/weather-neon-concept-removebg.png" alt="Something wrong with image" class="imageneon" style=" height: 450px;width: 450px;filter: drop-shadow(10px 10px 10px black);" >
-	<div class="maincontentinfo">
+  <img src="images/weather-neon-concept-removebg.png" alt="Something wrong with image" 
+       class="imageneon" style="height: 450px;width: 450px;filter: drop-shadow(10px 10px 10px black);">
+
+  <div class="maincontentinfo">
     <h1>Welcome to the ZCasting Weather Web App</h1>
     <h3>Made by @ZaheerBagwan</h3>
- 
-    <h2>Technologies Used: </h2> <p>HTML, CSS, JS, Java, Servlet, JSP, OpenWeather API</p>
-     <form action="Servlet" method="post" class="searchInput">
-            <input type="text" placeholder="Enter Your City Name" id="searchInput"  name="city" required/>
-            <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>   
-      </div> 
- </div>
- 
+    <h2>Technologies Used:</h2> 
+    <p>HTML, CSS, JS, Java, Servlet, JSP, OpenWeather API</p>
+
+    <!-- Search form -->
+    <form action="Servlet" method="post" class="searchInput" id="weatherForm">
+      <input type="text" placeholder="Enter Your City Name" id="searchInput" name="city" required/>
+      <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>   
+
+    <!-- Show last searched city -->
+    <p id="lastCity" style="margin-top: 10px; font-weight: bold;"></p>
+  </div> 
+</div>
+
+<!-- JavaScript -->
+<script>
+  // On form submit, save the searched city into localStorage
+  document.getElementById("weatherForm").addEventListener("submit", function(event) {
+    let city = document.getElementById("searchInput").value.trim();
+    if (city !== "") {
+      localStorage.setItem("lastCity", city); // Save last searched city
+    }
+  });
+
+  // On page load, check if there's a last searched city
+  window.onload = function() {
+    let lastCity = localStorage.getItem("lastCity");
+    if (lastCity) {
+      document.getElementById("lastCity").innerText = "Last searched: " + lastCity;
+      document.getElementById("searchInput").value = lastCity; // pre-fill input
+    }
+  };
+</script>
 </body>
 </html>
