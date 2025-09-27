@@ -24,7 +24,7 @@ Zcasting Weather App is a web application developed to provide real-time weather
 
 1. Clone the repository.
 2. Deploy the application in a Java Servlet container like Apache Tomcat.
-3. Open the application in your web browser.
+3. Start the server and open the application in your web browser.
 
 ## Usage
 
