@@ -9,6 +9,8 @@ Zcasting Weather App is a web application developed to provide real-time weather
 - **Real-time Weather Updates:** Fetch weather information using the OpenWeather API.
 - **User Input Functionality:** Enter any city name to get weather details.
 - **Responsive Design:** Optimized for seamless use across different devices.
+- **Last Searched City Memory:** Uses localStorage to remember and display the last searched city, even after refreshing the page.
+- **Responsive Design:** Optimized for seamless use across desktop and mobile devices.
 
 ## Technologies Used
 
@@ -28,5 +30,5 @@ Zcasting Weather App is a web application developed to provide real-time weather
 
 - Enter a city name in the provided input field.
 - Click 'Submit' to retrieve the current weather information for that city.
-
+- The app will also display the last searched city for convenience.
 
